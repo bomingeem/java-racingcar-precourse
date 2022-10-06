@@ -8,4 +8,11 @@ public class Car {
         this.name = name;
         this.distance = distance;
     }
+
+    public CarStatus move(Car car) {
+        if (car.distance >= 4) {
+            return CarStatus.MOVE;
+        }
+        return CarStatus.STOP;
+    }
 }
