@@ -3,6 +3,7 @@ package racingcar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
+import racingcar.domain.CarName;
 import racingcar.domain.CarNumber;
 import racingcar.domain.CarStatus;
 
@@ -17,8 +18,14 @@ public class CarTest {
     }
 
     @Test
-    void 검증() {
-        boolean result = CarNumber.inputNumber(9);
+    void validationNumberTest() {
+        boolean result = CarNumber.validationNumber(9);
+        assertThat(result).isTrue();
+    }
+
+    @Test
+    void validationNameTest() {
+        boolean result = CarName.validationName();
         assertThat(result).isTrue();
     }
 

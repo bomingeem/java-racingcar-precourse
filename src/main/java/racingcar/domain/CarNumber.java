@@ -9,7 +9,7 @@ public class CarNumber {
         this.number = number;
     }
 
-    public static boolean inputNumber(int number) {
+    public static boolean validationNumber(int number) {
         if (number >= MIN_NUMBER && number <= MAX_NUMBER) {
             return true;
         }
