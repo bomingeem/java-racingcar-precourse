@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car {
+    public static final int MOVE_MIN_VALUE = 4;
     private String name;
     private int distance;
 
@@ -10,9 +11,10 @@ public class Car {
     }
 
     public CarStatus move(Car car) {
-        if (car.distance >= 4) {
-            return CarStatus.MOVE;
-        }
-        return CarStatus.STOP;
+        return matchCarDistance(car.distance) ? CarStatus.MOVE : CarStatus.STOP;
+    }
+
+    private boolean matchCarDistance(int distance) {
+        return distance >= MOVE_MIN_VALUE;
     }
 }
