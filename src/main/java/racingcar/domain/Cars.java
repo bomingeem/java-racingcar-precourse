@@ -53,4 +53,14 @@ public class Cars {
         }
         return new Cars(winnerCars);
     }
+
+    @Override
+    protected Object clone() {
+        List<Car> cloneCars = new ArrayList<>();
+        for (Car car : answers) {
+            Car cloneCar = new Car(car.getName(), car.getDistance());
+            cloneCars.add(cloneCar);
+        }
+        return new Cars(cloneCars);
+    }
 }

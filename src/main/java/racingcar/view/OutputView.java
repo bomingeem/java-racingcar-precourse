@@ -3,16 +3,16 @@ package racingcar.view;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RacingGameRecord;
-import racingcar.domain.RacingRame;
+import racingcar.domain.RacingGame;
 
 public class OutputView {
     private static final String OUTPUT_EXECUTION_RESULT = "실행 결과";
     private static final String OUTPUT_FINAL_WINNER = "최종 우승자: %s";
 
-    public static void printRacingGameResult(RacingRame racingRame) {
+    public static void printRacingGameResult(RacingGame racingGame) {
         System.out.println(OUTPUT_EXECUTION_RESULT);
-        printRacingGameRecord(racingRame.getRacingGameRecord());
-        printFinalWinner(racingRame.getCars());
+        printRacingGameRecord(racingGame.getRacingGameRecord());
+        printFinalWinner(racingGame.getCars());
     }
 
     private static void printRacingGameRecord(RacingGameRecord racingGameRecord) {

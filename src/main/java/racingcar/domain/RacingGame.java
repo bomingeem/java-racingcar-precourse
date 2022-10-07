@@ -4,11 +4,11 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 
-public class RacingRame {
+public class RacingGame {
     private final Cars cars;
     private final RacingGameRecord racingGameRecord;
 
-    public RacingRame(String names) {
+    public RacingGame(String names) {
         this.cars = Cars.createCars(names);
         racingGameRecord = new RacingGameRecord(new ArrayList<>());
     }
@@ -25,8 +25,8 @@ public class RacingRame {
         while (number-- > 0) {
             for (Car car : cars.getAnswers()) {
                 move(car);
-                racingGameRecord.addCars(cars);
             }
+            racingGameRecord.addCars((Cars) cars.clone());
         }
     }
 
