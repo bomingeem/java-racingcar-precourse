@@ -10,6 +10,10 @@ public class Car {
         this.distance = distance;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public CarStatus move(Car car) {
         return matchCarDistance(car.distance) ? CarStatus.MOVE : CarStatus.STOP;
     }
