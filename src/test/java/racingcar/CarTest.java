@@ -2,10 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Car;
-import racingcar.domain.CarName;
-import racingcar.domain.CarNumber;
-import racingcar.domain.CarStatus;
+import racingcar.domain.*;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -14,31 +11,19 @@ public class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car("TEST", 1);
-    }
-
-    @Test
-    void validationNumberTest() {
-        boolean result = CarNumber.validationNumber(9);
-        assertThat(result).isTrue();
-    }
-
-    @Test
-    void validationNameTest() {
-        boolean result = CarName.validationName();
-        assertThat(result).isTrue();
+        car = Car.createCar("A");
     }
 
     @Test
     void move() {
-        CarStatus status = car.move(new Car("A", 8));
-        assertThat(status).isEqualTo(CarStatus.MOVE);
+        boolean result = car.matchCarDistance(4);
+        assertThat(result).isTrue();
     }
 
     @Test
     void stop() {
-        CarStatus status = car.move(new Car("B", 2));
-        assertThat(status).isEqualTo(CarStatus.STOP);
+        boolean result = car.matchCarDistance(2);
+        assertThat(result).isFalse();
     }
 
 }

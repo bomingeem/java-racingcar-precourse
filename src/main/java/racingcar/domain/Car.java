@@ -2,23 +2,30 @@ package racingcar.domain;
 
 public class Car {
     public static final int MOVE_MIN_VALUE = 4;
-    private String name;
+    private CarName name;
     private int distance;
 
-    public Car(String name, int distance) {
+    public Car(CarName name, int distance) {
         this.name = name;
         this.distance = distance;
     }
 
-    public String getName() {
+    public static Car createCar(String name) {
+        return new Car(new CarName(name), 0);
+
+    }
+
+    public CarName getName() {
         return name;
     }
 
-    public CarStatus move(Car car) {
-        return matchCarDistance(car.distance) ? CarStatus.MOVE : CarStatus.STOP;
+    public void move(int number) {
+        if (matchCarDistance(number)) {
+            distance++;
+        }
     }
 
-    private boolean matchCarDistance(int distance) {
+    public boolean matchCarDistance(int distance) {
         return distance >= MOVE_MIN_VALUE;
     }
 }

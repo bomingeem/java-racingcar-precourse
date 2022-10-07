@@ -6,13 +6,13 @@ public class CarNumber {
     private int number;
 
     public CarNumber(int number) {
+        validationNumber(number);
         this.number = number;
     }
 
-    public static boolean validationNumber(int number) {
-        if (number >= MIN_NUMBER && number <= MAX_NUMBER) {
-            return true;
+    public static void validationNumber(int number) {
+        if (number < MIN_NUMBER || number > MAX_NUMBER) {
+            throw new IllegalArgumentException("[ERROR] 숫자의 범위는 0부터 9까지 입니다.");
         }
-        return false;
     }
 }
