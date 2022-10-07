@@ -19,6 +19,10 @@ public class Car {
         return name;
     }
 
+    public int getDistance() {
+        return distance;
+    }
+
     public void move(int number) {
         if (matchCarDistance(number)) {
             distance++;
