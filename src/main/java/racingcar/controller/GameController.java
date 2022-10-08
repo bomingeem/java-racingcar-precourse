@@ -1,10 +1,11 @@
 package racingcar.controller;
 
-import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.CarNumber;
 import racingcar.domain.RacingGame;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import static racingcar.utils.CommonUtil.*;
 
 public class GameController {
     private RacingGame racingGame;
@@ -12,11 +13,36 @@ public class GameController {
 
     public void play() {
         InputView.printInputRacingCarNames();
-        racingGame = new RacingGame(Console.readLine());
+        inputCarNamesAndValidation();
         InputView.printInputTryCount();
-        carNumber = new CarNumber(Console.readLine());
+        inputCarNumberAndValidation();
 
         racingGame.start(carNumber.getNumber());
         OutputView.printRacingGameResult(racingGame);
+    }
+
+    private void inputCarNamesAndValidation() {
+        boolean isValidInputNames = false;
+        while (!isValidInputNames) {
+            try {
+                racingGame = new RacingGame(inputText());
+                isValidInputNames = true;
+            } catch (IllegalArgumentException e) {
+                OutputView.printMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void inputCarNumberAndValidation() {
+        boolean isValidInputNumber = false;
+        while (!isValidInputNumber) {
+            try {
+                carNumber = new CarNumber(inputText());
+                isValidInputNumber = true;
+            } catch (IllegalArgumentException e) {
+                OutputView.printMessage(e.getMessage());
+            }
+        }
+
     }
 }

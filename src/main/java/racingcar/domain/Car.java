@@ -1,7 +1,8 @@
 package racingcar.domain;
 
+import static racingcar.constant.Constant.*;
+
 public class Car {
-    public static final int MOVE_MIN_VALUE = 4;
     private CarName name;
     private int distance;
 
@@ -11,7 +12,7 @@ public class Car {
     }
 
     public static Car createCar(String name) {
-        return new Car(new CarName(name), 0);
+        return new Car(new CarName(name), INITIALIZE_NUMBER);
 
     }
 

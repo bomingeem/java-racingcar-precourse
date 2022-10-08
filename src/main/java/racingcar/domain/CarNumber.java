@@ -1,8 +1,10 @@
 package racingcar.domain;
 
+import racingcar.utils.CommonUtil;
+
+import static racingcar.constant.Constant.*;
+
 public class CarNumber {
-    public static final int MIN_NUMBER = 0;
-    public static final int MAX_NUMBER = 9;
     private int number;
 
     public CarNumber(String number) {
@@ -15,18 +17,14 @@ public class CarNumber {
     }
 
     public static void validationNumber(String number) {
-        isNullOrEmptyCheck(number);
+        CommonUtil.isNullOrEmptyCheck(number);
         int parsingNumber = getParseInt(number);
         if (parsingNumber < MIN_NUMBER || parsingNumber > MAX_NUMBER) {
-            throw new IllegalArgumentException("[ERROR] 숫자의 범위는 0부터 9까지 입니다.");
+            throw new IllegalArgumentException(INPUT_NUMBER_RANGE);
         }
     }
 
     private static int getParseInt(String number) {
         return Integer.parseInt(number);
-    }
-
-    private static boolean isNullOrEmptyCheck(String str) {
-        return str == null || str == "";
     }
 }

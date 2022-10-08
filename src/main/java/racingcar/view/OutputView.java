@@ -15,6 +15,11 @@ public class OutputView {
         printFinalWinner(racingGame.getCars());
     }
 
+    public static void printMessage(String message) {
+        System.out.println(message);
+
+    }
+
     private static void printRacingGameRecord(RacingGameRecord racingGameRecord) {
         for (Cars cars : racingGameRecord.getCarsList()) {
             for (Car car : cars.getAnswers()) {

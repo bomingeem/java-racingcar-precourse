@@ -1,10 +1,13 @@
 package racingcar.domain;
 
+import racingcar.utils.CommonUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cars {
+import static racingcar.constant.Constant.*;
 
+public class Cars {
     private final List<Car> answers;
 
     public Cars(List<Car> answers) {
@@ -16,7 +19,8 @@ public class Cars {
     }
 
     public static Cars createCars(String names) {
-        String[] splitNames = names.split(",");
+        validationCarNames(names);
+        String[] splitNames = names.split(COMMA);
         return new Cars(mapCar(splitNames));
     }
 
@@ -36,7 +40,7 @@ public class Cars {
 
             );
         }
-        return String.join(",", winnerNames);
+        return String.join(COMMA, winnerNames);
     }
 
     public Cars getWinnerResult() {
@@ -52,6 +56,12 @@ public class Cars {
             }
         }
         return new Cars(winnerCars);
+    }
+
+    private static void validationCarNames(String names) {
+        if (CommonUtil.isNullOrEmptyCheck(names)) {
+            throw new IllegalArgumentException(INPUT_VALUE);
+        }
     }
 
     @Override
