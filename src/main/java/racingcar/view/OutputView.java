@@ -7,7 +7,8 @@ import racingcar.domain.RacingGame;
 
 public class OutputView {
     private static final String OUTPUT_EXECUTION_RESULT = "실행 결과";
-    private static final String OUTPUT_FINAL_WINNER = "최종 우승자: %s";
+    private static final String RACING_CAR = "%s : %s\n";
+    private static final String OUTPUT_FINAL_WINNER = "최종 우승자 : %s";
 
     public static void printRacingGameResult(RacingGame racingGame) {
         System.out.println(OUTPUT_EXECUTION_RESULT);
@@ -23,7 +24,7 @@ public class OutputView {
     private static void printRacingGameRecord(RacingGameRecord racingGameRecord) {
         for (Cars cars : racingGameRecord.getCarsList()) {
             for (Car car : cars.getAnswers()) {
-                System.out.printf("%s : %s\n", car.getName().getName(), getCarMoveMark(car.getDistance()));
+                System.out.printf(RACING_CAR, car.getName().getName(), getCarMoveMark(car.getDistance()));
             }
             System.out.println();
         }

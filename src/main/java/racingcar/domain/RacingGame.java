@@ -1,8 +1,9 @@
 package racingcar.domain;
 
-import camp.nextstep.edu.missionutils.Randoms;
-
+import racingcar.utils.CommonUtil;
 import java.util.ArrayList;
+
+import static racingcar.constant.Constant.*;
 
 public class RacingGame {
     private final Cars cars;
@@ -31,6 +32,6 @@ public class RacingGame {
     }
 
     private void move(Car car) {
-        car.move(Randoms.pickNumberInRange(0, 9));
+        car.move(CommonUtil.getRandomNumber(MIN_NUMBER, MAX_NUMBER));
     }
 }
